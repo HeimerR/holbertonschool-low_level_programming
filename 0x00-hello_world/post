@@ -1,0 +1,26 @@
+The C program compilation process
+The compilation process in C is divided in 4 stages
+Preprocessing
+Compilation
+Assembly
+Linking
+
+Preprocessing
+The process starts with a .c file where the code is written. This is the file that containt the code that we write originally. In this first step the compiler do the following tasks:
+Remove comments
+Expand macros
+Expand included files
+
+We can use the gcc command (linux) to compile our file, with the following structure we can compile only the first step (preprocessing)
+gcc -E -o file.out file.c
+"-E" cuts the process after the preprocessing. the output will be store in main.out.
+Compilation
+In this second step the compiler take the file and turn it into an assembly level instruction that are easier to understand for humans. Again we use gcc command to compile.
+gcc -c file.c
+-c cuts the process after the compilation. the output will be store in a ".o" by default, if the output file is not definided 
+Assembly
+The compiler take the file from the previous step and create a new one. this new file contain machine level language. no readeable for humans. we can use the gcc command to reach this level
+gcc -S file.c
+-S cuts the process after the assembly process. the output will be store in a .s file by default.
+Liking
+This is the final step. Here the compiler co
