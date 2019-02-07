@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* given a random number, the system show if is +,_, or 0 */
+/* given a random number, the system shows if is +,_, or 0 */
 int main(void)
 {
 int n;
