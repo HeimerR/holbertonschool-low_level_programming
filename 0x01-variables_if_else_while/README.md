@@ -1,0 +1,1 @@
+how to use variables, if, else and while in C
