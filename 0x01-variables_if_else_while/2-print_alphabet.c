@@ -14,5 +14,6 @@ char letter;
 	{
 	putchar(letter);
 	}
+printf("\n");
 return (0);
 }
