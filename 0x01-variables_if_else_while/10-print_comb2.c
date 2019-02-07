@@ -19,7 +19,7 @@ int number2;
 		if (number == '9' && number2 == '9')
 		{
 		}
-		else 
+		else
 		{
 		putchar(',');
 		putchar(' ');
