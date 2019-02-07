@@ -17,7 +17,8 @@ int number3;
 		{
 			for (number3 = '0'; number3 <= '9'; number3++)
 			{
-			if (((number < number2) && (number2 < number3)) && ((number != number2) && (number2 != number3)))
+			if (((number < number2) && (number2 < number3))
+			&& ((number != number2) && (number2 != number3)))
 			{
 			putchar(number);
 			putchar(number2);
