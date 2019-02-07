@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* betty style doc for function main goes there */
+/* given a random number, the system show if is +,_, or 0 */
 int main(void)
 {
 int n;
