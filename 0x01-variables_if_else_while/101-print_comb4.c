@@ -22,7 +22,7 @@ int number3;
 			putchar(number);
 			putchar(number2);
 			putchar(number3);
-			if (number == '7' && number2 == '8' && number3 == '9' )
+			if (number == '7' && number2 == '8' && number3 == '9')
 			{
 			}
 			else
