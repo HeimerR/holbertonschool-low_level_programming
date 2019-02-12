@@ -10,7 +10,7 @@ int n1;
 int n2;
 int digit;
 int digit2;
-if (n <= 15 && n > 0)
+if (n < 15 && n >= 0)
 {
 	for (n1 = 0 ; n1 <= n; n1++)
 	{
