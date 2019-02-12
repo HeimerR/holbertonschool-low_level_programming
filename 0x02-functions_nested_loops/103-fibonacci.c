@@ -16,7 +16,7 @@ long sum = 2;
 	n3 = n1 + n2;
 	n1 = n2;
 	n2 = n3;
-	if(( n3 % 2) == 0)
+	if ((n3 % 2) == 0)
 	{
 	sum = sum + n3;
 	}
