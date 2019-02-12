@@ -1,4 +1,9 @@
 #include "holberton.h"
+/**
+  * main - Prints Holberton with _putchar
+  *
+  * Return: 0
+**/
 int main(void)
 {
 char out[] = "Holberton";
