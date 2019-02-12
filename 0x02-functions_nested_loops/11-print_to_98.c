@@ -35,7 +35,6 @@ int num;
 		{
 		printf("%d, ", num);
 		}
-		
 		}
 	}
 	printf("\n");
