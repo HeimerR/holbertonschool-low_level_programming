@@ -2,7 +2,7 @@
 /**
   * print_alphabet - prints the alphabeth
   *
-  * Return: 0
+  * Return: no return
 **/
 void print_alphabet(void)
 {
@@ -12,5 +12,4 @@ char letter;
 	_putchar(letter);
 	}
 	_putchar('\n');
-return (0);
 }
