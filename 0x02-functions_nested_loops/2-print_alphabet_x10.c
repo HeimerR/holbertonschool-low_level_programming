@@ -2,9 +2,9 @@
 /**
   * print_alphabet_x10 - prints alphabet lower cases
   *
-  * Return: 0
+  * Return: no return
 **/
-int print_alphabet_x10(void)
+void print_alphabet_x10(void)
 {
 char letter;
 int n;
@@ -16,5 +16,4 @@ int n;
 		}
 		_putchar('\n');
 		}
-return (0);
 }
