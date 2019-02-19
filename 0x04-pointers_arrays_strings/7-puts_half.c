@@ -19,7 +19,7 @@ else
 {
 n = i / 2;
 }
-while (j <= n)
+while (j < n)
 {
 _putchar(str[j + n]);
 j++;
