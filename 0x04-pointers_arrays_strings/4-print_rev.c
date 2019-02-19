@@ -12,10 +12,11 @@ while (*s != '\0')
 {
 s++;
 }
-while (s >= n)
+while (s > n)
 {
 _putchar(*s);
 s--;
 }
+_putchar(*s);
 _putchar('\n');
 }
