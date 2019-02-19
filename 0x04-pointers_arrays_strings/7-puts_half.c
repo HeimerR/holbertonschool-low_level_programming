@@ -11,8 +11,6 @@ while (str[i] != '\0')
 {
 i++;
 }
-_putchar(i + '0');
-_putchar('\n');
 if (i % 2 != 0)
 {
 n = (i - 1) / 2;
