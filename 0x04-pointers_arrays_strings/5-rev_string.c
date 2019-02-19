@@ -12,12 +12,12 @@ while (s[i] != '\0')
 {
 i++;
 }
-while(i > 0)
+while (i > 0)
 {
 for (j = 0; j < (i - 1); j++)
 {
-aux = s[j+1];
-s[j+1] =  s[j];
+aux = s[j + 1];
+s[j + 1] =  s[j];
 s[j] = aux;
 }
 i--;
