@@ -9,6 +9,7 @@ int _atoi(char *s)
 	int size = 0, negatives = 0, p = 1, j, start = 0, end;
 	unsigned int number = 0;
 	int number2 = 0;
+
 	while (s[size] != '\0')
 	{
 	size++;
@@ -39,7 +40,7 @@ int _atoi(char *s)
 	}
 	number2 = number;
 	if (negatives % 2 != 0)
-	{ 
+	{
 	number2 = -number2;
 	}
 return (number2);
