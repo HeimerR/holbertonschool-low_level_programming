@@ -22,13 +22,13 @@ while (s[end + 1] > 47 && s[end + 1] < 58)
 end++;
 }
 for (j = 0; j < start; j++)
-{ 
-if (s[j] == 45) 
+{
+if (s[j] == 45)
 { negatives++; }
 }
 for (j = end; j >= start; j--)
 {
-number = number + (s[j] - '0') * p; 
+number = number + (s[j] - '0') * p;
 p = p * 10;
 }
 if (negatives % 2 != 0)
