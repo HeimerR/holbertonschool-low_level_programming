@@ -17,7 +17,7 @@ while (s[start] < 48 || s[start] > 57)
 start++;
 	if (start == size)
 	{
-	return (0);
+	return (number);
 	}
 }
 end = start;
