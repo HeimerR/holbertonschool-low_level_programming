@@ -6,9 +6,8 @@
 **/
 int _atoi(char *s)
 {
-	int size = 0, negatives = 0, p = 1, j, start = 0, end;
+	int number2 = 0, size = 0, negatives = 0, p = 1, j, start = 0, end;
 	unsigned int number = 0;
-	int number2 = 0;
 
 	while (s[size] != '\0')
 	{
@@ -18,9 +17,7 @@ int _atoi(char *s)
 	{
 	start++;
 		if (start == size)
-		{
-		return (number2);
-		}
+		{ return (number2); }
 	}
 	end = start;
 	while (s[end + 1] > 47 && s[end + 1] < 58)
@@ -38,10 +35,12 @@ int _atoi(char *s)
 	if (p < 1000000000)
 	{ p = p * 10; }
 	}
-	number2 = number;
+	if (number == 2147483648 && (negatives % 2 != 0))
+	{ number2 = -2147483648; }
+	else
+	{ number2 = number;
 	if (negatives % 2 != 0)
-	{
-	number2 = -number2;
+	{ number2 = -number2; }
 	}
 return (number2);
 }
