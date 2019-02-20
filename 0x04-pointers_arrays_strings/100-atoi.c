@@ -15,6 +15,10 @@ size++;
 while (s[start] < 48 || s[start] > 57)
 {
 start++;
+	if(start == size)
+	{
+	return (0);
+	}
 }
 end = start;
 while (s[end + 1] > 47 && s[end + 1] < 58)
