@@ -8,7 +8,7 @@ char *string_toupper(char *n)
 {
 	int i = 0;
 
-	while (n[i] != '0')
+	while (n[i] != '\0')
 	{
 	if (n[i] < 123 && n[i] > 96)
 	{
