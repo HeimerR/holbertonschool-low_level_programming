@@ -12,9 +12,7 @@ f = s;
 while (*f != '\0' && *f != c)
 {
 f++;
-if (*f == '\0')
-{ return 0; }
 }
-return (f); 
+return (f);
 }
 
