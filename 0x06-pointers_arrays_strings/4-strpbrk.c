@@ -21,5 +21,5 @@ return (aux);
 }
 aux++;
 }
-return (aux);
+return (0);
 }
