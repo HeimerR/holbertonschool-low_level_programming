@@ -1,0 +1,34 @@
+#include "holberton.h"
+/**
+  * issqr - find if it is a root
+  * @n1: number to check
+  * @n2: number base
+  * Return: square or -1
+**/
+int issqr(int n1, int n2)
+{
+if (n1 == 1)
+{ return (-1); }
+if (n1 * n1 == n2)
+{
+return (n1);
+}
+else
+{
+return (issqr((n1 - 1), n2));
+}
+return (-1);
+}
+/**
+* _sqrt_recursion - returns the natural square root
+* @n: number
+* Return: squre root
+**/
+int _sqrt_recursion(int n)
+{
+if (n < 1)
+return (-1);
+if (n == 1)
+return (1);
+return (issqr(n - 1, n));
+}
