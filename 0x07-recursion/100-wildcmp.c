@@ -15,9 +15,12 @@ int _strlen_recursion(char *s)
 }
 /**
 * comp - compares
-* @s: char
-* @start: start point
-* @end: end point
+* @s1: char
+* @s2: char
+* @start1: start1
+* @start2: start2
+* @end1: end1
+* @end2: end2
 * Return: boolean
 **/
 
@@ -35,7 +38,7 @@ return (1);
 }
 /**
 * wildcmp - 1 if the strings can be considered identical
-* @s1: char 1 
+* @s1: char 1
 * @s2: char 2
 * Return: Boolean
 */
