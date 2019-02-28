@@ -5,7 +5,7 @@
   * @n2: number base
   * Return: square or -1
 **/
-int issqr(unsigned long long n1, unsigned long long n2)
+int issqr(unsigned long n1, unsigned long n2)
 {
 if (n1 == n2)
 { return (-1); }
