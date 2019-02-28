@@ -5,9 +5,9 @@
   * @n2: number base
   * Return: square or -1
 **/
-int issqr(int n1, int n2)
+int issqr(unsigned long long n1, unsigned long long n2)
 {
-if (n1 == 1)
+if (n1 == n2)
 { return (-1); }
 if (n1 * n1 == n2)
 {
@@ -15,7 +15,7 @@ return (n1);
 }
 else
 {
-return (issqr((n1 - 1), n2));
+return (issqr((n1 + 1), n2));
 }
 return (-1);
 }
@@ -32,5 +32,5 @@ if (n < 0 || n == 2)
 return (-1);
 if (n == 1)
 return (1);
-return (issqr(n - 1, n));
+return (issqr(2, n));
 }
