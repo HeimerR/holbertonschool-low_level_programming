@@ -8,7 +8,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int sum = 0, n, i;
+	int sum = 0, n, i, j;
 
 	if (argc == 1)
 	{
@@ -23,6 +23,12 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
+			for (j = 0; argv[i][j] != '\0'; j++)
+			{
+				if (argv[i][j] > 57 || argv[i][j] < 48)
+				{  printf("Error\n");
+				return (1); }
+			}
 			if (atoi(argv[i]) == 0)
 			{ printf("Error\n");
 			return (1); }
