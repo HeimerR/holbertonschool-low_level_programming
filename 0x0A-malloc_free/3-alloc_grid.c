@@ -2,11 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
-* alloc_grid - concatenates two strings
+* finallyfree - free memory
 *
-* @width: width array
-* @height: height array
-* Return: pointer to 2D array
+* @p: pointer
+*/
+
+void finallyfree(int **p)
+{
+free(*p);
+*p = NULL;
+}
+/**
+  * alloc_grid - concatenates two strings
+  *
+  * @width: width array
+  * @height: height array
+  * Return: pointer to 2D array
 */
 int **alloc_grid(int width, int height)
 {
@@ -17,12 +28,15 @@ int **alloc_grid(int width, int height)
 	{
 		p = (int **)malloc(sizeof(int *) * height);
 		if (p == NULL)
-		return (p);
+		return (NULL);
 		for (i = 0; i <  height; i++)
 		{
 			p[i] = (int *)malloc((width) * sizeof(int));
 			if (p[i] == NULL)
-			return (NULL);
+			{
+			finallyfree(p);
+			return (0);
+			}
 			for (j = 0; j < width; j++)
 			{
 				p[i][j] = 0;
