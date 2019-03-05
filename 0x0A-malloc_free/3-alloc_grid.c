@@ -3,7 +3,7 @@
 #include <stdlib.h>
 /**
 * finallyfree - free memory
-* i: interator
+* @i: interator
 * @p: pointer
 */
 
