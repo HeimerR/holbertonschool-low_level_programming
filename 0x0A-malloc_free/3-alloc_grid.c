@@ -3,14 +3,18 @@
 #include <stdlib.h>
 /**
 * finallyfree - free memory
-*
+* i: interator
 * @p: pointer
 */
 
-void finallyfree(int **p)
+void finallyfree(int **p, int i)
 {
-free(*p);
-*p = NULL;
+int j;
+for (j = 0; j < i; j++)
+{
+free(p[j]);
+}
+free(p);
 }
 /**
   * alloc_grid - concatenates two strings
@@ -34,7 +38,7 @@ int **alloc_grid(int width, int height)
 			p[i] = (int *)malloc((width) * sizeof(int));
 			if (p[i] == NULL)
 			{
-			finallyfree(p);
+			finallyfree(p, i);
 			return (0);
 			}
 			for (j = 0; j < width; j++)
