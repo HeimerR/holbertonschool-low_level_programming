@@ -18,11 +18,11 @@ char **strtow(char *str)
 	while (str[i] != '\0')
 	{
 		count++;
-		if (str[i] == 32 && str[i + 1] != 32)
-		height++;
+		if (str[i] != 32 && (str[i + 1] == 32 || str[i + 1] == '\0'))
+		{ height++; }
 	i++;
 	}
-	p = (char **)malloc(sizeof(char *) * (height));
+	p = (char **)malloc(sizeof(char *) * (height + 1));
 	if (p == NULL)
 		return (NULL);
 	i = 0;
@@ -31,7 +31,7 @@ char **strtow(char *str)
 	{
 		if (str[i] != 32)
 		count++;
-		if (count > 0 && str[i + 1] == 32)
+		if (count > 0 && (str[i + 1] == 32 || str[i + 1] == '\0'))
 		{
 			p[word] = (char *)malloc((count + 1) * sizeof(char));
 			if (p[word] == NULL)
@@ -46,6 +46,6 @@ char **strtow(char *str)
 		}
 		i++;
 	}
-	p[height - 1] = '\0';
+	p[height] = '\0';
 return (p);
 }
