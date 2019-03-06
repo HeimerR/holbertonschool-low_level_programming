@@ -23,7 +23,7 @@ char **strtow(char *str)
 		height++;
 	i++;
 	}
-	p = (char **)malloc(sizeof(char *) * (height - 1));
+	p = (char **)malloc(sizeof(char *) * (height));
 	if (p == NULL)
 		return (NULL);
 	i = 0;
@@ -37,14 +37,16 @@ char **strtow(char *str)
 			p[word] = (char *)malloc((count + 1) * sizeof(char));
 			if (p[word] == NULL)
 			return (NULL);
-			for (k = 0; k <= count; k++)
+			for (k = 0; k < count; k++)
 			{
 				p[word][k] = str[i - count + 1 + k];
 			}
 			p[word][k] = '\0';
 			word++;
+			count = 0;
 		}
-		i = i + count;
+		i++;
 	}
+	p[height - 1] = '\0';
 return (p);
 }
