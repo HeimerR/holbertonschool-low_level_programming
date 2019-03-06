@@ -31,7 +31,10 @@ char **strtow(char *str)
 		if (str[i] != 32)
 		count++;
 		if (count > 0 && isalpha(str[i + 1]) == 0)
-		{ p[word] = (char *)malloc((count + 1) * sizeof(char));
+		{
+			p[word] = (char *)malloc((count + 1) * sizeof(char));
+			if (p[word] == NULL)
+			return (NULL);
 			for (k = 0; k <= count; k++)
 			{
 				p[word][k] = str[i - count + 1 + k];
