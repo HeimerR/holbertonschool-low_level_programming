@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 /**
 * strtow - concatenates all the arguments of your program
 * @str: array
@@ -32,7 +31,7 @@ char **strtow(char *str)
 	{
 		if (str[i] != 32)
 		count++;
-		if (count > 0 && isalpha(str[i + 1]) == 0)
+		if (count > 0 && str[i + 1] == 32)
 		{
 			p[word] = (char *)malloc((count + 1) * sizeof(char));
 			if (p[word] == NULL)
