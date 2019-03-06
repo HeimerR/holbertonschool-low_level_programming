@@ -11,9 +11,7 @@ char **strtow(char *str)
 	int k = 0, i = 0, count = 0, height = 0, word = 0;
 	char **p;
 
-	if (str == 0)
-		return (NULL);
-	if (*str == 0)
+	if (str == 0 || *str == 0)
 		return (NULL);
 	while (str[i] != '\0')
 	{
@@ -22,6 +20,8 @@ char **strtow(char *str)
 		{ height++; }
 	i++;
 	}
+	if (height == 0)
+		return (NULL);
 	p = (char **)malloc(sizeof(char *) * (height + 1));
 	if (p == NULL)
 		return (NULL);
