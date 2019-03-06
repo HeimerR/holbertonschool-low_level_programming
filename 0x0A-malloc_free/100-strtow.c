@@ -14,6 +14,8 @@ char **strtow(char *str)
 
 	if (str == NULL)
 		return (0);
+	if (str[0] == '\0')
+		return (0);
 	while (str[i] != '\0')
 	{
 		count++;
