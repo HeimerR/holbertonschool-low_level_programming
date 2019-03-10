@@ -1,40 +1,36 @@
-#include "holberton.h"
 #include <stdio.h>
-#include <string.h>
-/**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
+#include <unistd.h>
+#include <stdlib.h>
+
+unsigned long checksum(char *s)
+{
+unsigned long sum = 0;
+while (*s != 0)
+{
+	sum += *s;
+	s++;
+}
+return (sum);
+}
 int main(void)
 {
-char a[10],c[10];
-    int i,j,k=0;
-        printf("#Keygen by b44nz0r\n\n");
-	    	while (k <5 || k >=10)
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQSTUVWXYZ";
+	char s[33];
+	unsigned long sum;
+	int i, flag = 0;
+
+	while (flag == 0)
+	{
+		for (i = 0; i < 33; i++)
 		{
-		if (k !=0)
-		printf("\nThe username length should be 5 to 10 alphabets\n");
-					          
-		printf("enter username: ");
-		scanf("%s",a);
-		k = strlen(a);
+			s[i] = alpha[rand() % (sizeof(alpha) - 1)];
 		}
-	        
-	        i = k-1;
-		j = 0;
-		        
-		while (i >= 0)
+		sum = checksum(s);
+		if (sum == 2772)
 		{
-		c[j] = a[i]+i;
-		i--;
-		j++;
-		 }	    
-		c[j] = 0;
-		printf("\nThe password is %s\n",c);
-		printf("\nHit Enter to Exit\n");
-		getchar();
-		getchar();
- 
-  return (0);
+			flag = 1;
+			printf("%s", s);
+		}
+	}
+return (0);
 }
