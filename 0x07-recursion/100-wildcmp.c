@@ -17,25 +17,51 @@ int _strlen_recursion(char *s)
 * comp - compares
 * @s1: char
 * @s2: char
-* @start1: start1
-* @start2: start2
-* @end1: end1
-* @end2: end2
+* @i: iterator for s1
+* @j: iterator for s2
+* @wc: wildcard on
+* @lastwc: last wildcard
+* @len: length s1
 * Return: boolean
 **/
 
-int comp(char *s1, char *s2, int start1, int start2, int end1, int end2)
+int comp(char *s1, char *s2, int i, int j, int wc, int lastwc, int len)
 {
-if (start1 == end1 && start2 == end2)
-{
-return (1);
-}
-if ((s1[start1] != s2[start2]) && s1[start1] != 42 && s2[start2] != 42)
+	if (s2[j] == '\0' && (s2[j - 1] == '*' || s2[j - 1] == s1[len - 1]))
+	return (1);
+	if (s2[j] == '*')
+	{
+		lastwc = ++j;
+		wc = 1;
+		return (comp(s1, s2, i, j, wc, lastwc, len));
+	}
+	if (s2[j] == s1[i])
+	{
+		i++;
+		j++;
+		wc = 0;
+		return (comp(s1, s2, i, j, wc, lastwc, len));
+	}
+	if (s1[i] != s2[j] && wc == 1)
+	{
+		if (s1[i] == '\0')
+		return (0);
+		i++;
+		return (comp(s1, s2, i, j, wc, lastwc, len));
+	}
+	if (s1[i] == '\0')
+		return (0);
+	if (s1[i] != s2[j] && wc == 0)
+	{
+		j = lastwc;
+		wc = 1;
+		if (lastwc == 0)
+		return (0);
+		return (comp(s1, s2, i, j, wc, lastwc, len));
+	}
 return (0);
-if (start1 < end1 && start2 < end2)
-return (comp(s1, s2,  start1 + 1, start2 + 1,  end1, end2));
-return (1);
 }
+
 /**
 * wildcmp - 1 if the strings can be considered identical
 * @s1: char 1
@@ -44,17 +70,9 @@ return (1);
 */
 int wildcmp(char *s1, char *s2)
 {
-char *aux;
-int size1;
-int size2;
-int start1 = 0, start2 = 0;
-int end1, end2;
-aux = s1;
-size1 = _strlen_recursion(aux);
-aux = s2;
-size2 = _strlen_recursion(aux);
-end1 = size1 - 1;
-end2 = size2 - 1;
-return (comp(s1, s2, start1, start2, end1, end2));
+int i = 0, j = 0, wc = 1, lastwc = 0, len;
+len = _strlen_recursion(s1);
+
+return (comp(s1, s2, i, j, wc, lastwc, len));
 }
 
