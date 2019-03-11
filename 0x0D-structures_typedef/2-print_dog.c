@@ -20,6 +20,6 @@ if (d != NULL)
 	if (d->owner == NULL)
 	printf("Owner: %p\n", d->owner);
 	else
-	printf("Owner%s\n", (*d).owner);
+	printf("Owner: %s\n", (*d).owner);
 }
 }
