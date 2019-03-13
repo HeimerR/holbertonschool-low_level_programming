@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 /**
-* is_98 - check if a number is equal to 98
-* @elem: the integer to check
+* get_op_func - check if a number is equal to 98
+* @s: the integer to check
 *
-* Return: 0 if false, something else otherwise.
+* Return: result
 */
 int (*get_op_func(char *s))(int, int)
 {
@@ -19,8 +19,8 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 	int i;
+
 	i = 0;
-	
 	while (ops[i].op != NULL && ops[i].f != NULL)
 	{
 		if (strcmp((ops[i].op), s) == 0)
@@ -30,6 +30,6 @@ int (*get_op_func(char *s))(int, int)
 	i++;
 	}
 	printf("Error\n");
-	exit (99);
+	exit(99);
 return (0);
 }
