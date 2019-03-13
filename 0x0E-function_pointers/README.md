@@ -1,0 +1,1 @@
+Tasks about funtion pointers in C
