@@ -35,17 +35,8 @@ void print_f(va_list s)
 */
 void print_s(va_list s)
 {
-	char *clone;
 
-	clone = va_arg(s, char*);
-	if (clone == '\0')
-	{
-		printf("%p", clone);
-	}
-	else
-	{
-	printf("%s", clone);
-	}
+	printf("%s", va_arg(s, char*));
 }
 
 /**
