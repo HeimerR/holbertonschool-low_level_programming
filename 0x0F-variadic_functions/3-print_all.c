@@ -72,8 +72,9 @@ void print_all(const char * const format, ...)
 
 	va_list list1;
 	unsigned int i = 0, j = 0;
-	char *p_clone;
-	int format_length;
+//	char *p_clone;
+	int start = 0;
+
 	my_fmt fmts[] = {
 		{"c", print_c},
 		{"i", print_i},
@@ -82,25 +83,30 @@ void print_all(const char * const format, ...)
 		{'\0', '\0'}
 	};
 
-	format_length = _strlen_recursion(format);
-
 	va_start(list1, format);
-
-
-
-
 /*	while (format[j] != '\0')
+	j++
+	if(format[j] == 'c' || format[j] == 'i' || format[j] == 'f' || format[j] == 's')
+	i++ */
+
+
+
+	while (format[j] != '\0')
 	{
 		i = 0;
 		while (fmts[i].f != '\0')
 		{
 			if (*(fmts[i].f) == format[j])
 			{
+				if (start == 1)
+					{ printf(", "); }				
 				fmts[i].p(list1);
+				start = 1;
 			}
 			i++;
 		}
 		j++;
 	}
-*/
+	printf("\n");
+
 }
