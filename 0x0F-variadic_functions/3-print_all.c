@@ -40,28 +40,14 @@ void print_s(va_list s)
 	va_copy(clone, s);
 	if (va_arg(clone, char*) == '\0')
 	{
-	printf("%p", va_arg(s, char*));
+		printf("%p", va_arg(s, char*));
 	}
 	else
 	{
 	printf("%s", va_arg(s, char*));
 	}
 }
-/**
-    * _strlen_recursion - returns the length of a string.
-      * @s: input char
-        * Return: length
-	  *
-	  **/
-int _strlen_recursion(char *s)
-{
-	if (*s == '\0')
-	{
-		return (0);
-	}
-	s++;
-	return (_strlen_recursion(s) + 1);
-}
+
 /**
 * print_all - print char, integer, float and string
 *
@@ -72,7 +58,6 @@ void print_all(const char * const format, ...)
 
 	va_list list1;
 	unsigned int i = 0, j = 0;
-//	char *p_clone;
 	int start = 0;
 
 	my_fmt fmts[] = {
@@ -84,13 +69,6 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(list1, format);
-/*	while (format[j] != '\0')
-	j++
-	if(format[j] == 'c' || format[j] == 'i' || format[j] == 'f' || format[j] == 's')
-	i++ */
-
-
-
 	while (format[j] != '\0')
 	{
 		i = 0;
@@ -98,8 +76,11 @@ void print_all(const char * const format, ...)
 		{
 			if (*(fmts[i].f) == format[j])
 			{
-				if (start == 1)
-					{ printf(", "); }				
+				switch (start)
+				{
+					case 1:
+					printf(", ");
+				}
 				fmts[i].p(list1);
 				start = 1;
 			}
@@ -108,5 +89,4 @@ void print_all(const char * const format, ...)
 		j++;
 	}
 	printf("\n");
-
 }
