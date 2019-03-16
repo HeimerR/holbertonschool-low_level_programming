@@ -12,20 +12,28 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 
 	va_start(list1, n);
-	if (separator && n)
+
+	for (i = 0; (i < n - 1); i++)
 	{
-		for (i = 0; (i < n - 1); i++)
-		{
-		va_copy(list2, list1);
-		if (va_arg(list2, const char*))
-		{ printf("%s%s", va_arg(list1, char*), separator); }
+	va_copy(list2, list1);
+	if (va_arg(list2, const char*))
+	{
+		if (separator != NULL)
+		printf("%s%s", va_arg(list1, char*), separator);
 		else
-		{ printf("%p%s", va_arg(list1, char*), separator); }
-		if (va_arg(list2, int))
-		{ printf("%s\n", va_arg(list1, char*)); }
+		printf("%s", va_arg(list1, char*));
+	}
+	else
+	{
+		if (separator != NULL)
+		printf("%p%s", va_arg(list1, char*), separator);
 		else
-		{ printf("%p\n", va_arg(list1, char*)); }
-		}
+		printf("%p", va_arg(list1, char*));
+	}
+	if (va_arg(list2, int))
+	{ printf("%s\n", va_arg(list1, char*)); }
+	else
+	{ printf("%p\n", va_arg(list1, char*)); }
 	}
 	va_end(list2);
 	va_end(list1);
