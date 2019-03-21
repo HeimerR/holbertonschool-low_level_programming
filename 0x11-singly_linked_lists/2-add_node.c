@@ -31,13 +31,15 @@ list_t *add_node(list_t **head, const char *str)
 		return (0);
 	}
 	new_node->str = strdup(str);
-	if (new_node->str == 0)
+	if (new_node->str == NULL)
 	{
 		printf("Error\n");
+		free(new_node);
 		return (0);
 	}
 	new_node->len = _strlen(str);
 	new_node->next = *head;
 	*head = new_node;
+//	free (new_node);
 	return (*head);
 }
