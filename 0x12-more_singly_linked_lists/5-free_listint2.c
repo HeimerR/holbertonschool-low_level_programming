@@ -8,12 +8,15 @@ void free_listint2(listint_t **head)
 	listint_t *aux;
 	listint_t *aux2;
 
-	aux = *head;
-	while (aux)
+	if (head)
 	{
-		aux2 = aux->next;
-		free(aux);
-		aux = aux2;
-	}
+		aux = *head;
+		while (aux)
+		{
+			aux2 = aux->next;
+			free(aux);
+			aux = aux2;
+		}
 	*head = NULL;
+	}
 }
