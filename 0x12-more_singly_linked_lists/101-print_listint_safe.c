@@ -30,7 +30,8 @@ listint_addr *add_nodeaddr(listint_addr **head, const listint_t *addr)
 	if (new_node == NULL)
 	{
 		printf("Error\n");
-		exit (98);
+		free_list2(*head);
+		exit(98);
 	}
 	new_node->address = addr;
 	new_node->next = *head;
