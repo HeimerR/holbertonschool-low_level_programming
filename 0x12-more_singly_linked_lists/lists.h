@@ -15,6 +15,18 @@ typedef struct listint_s
 	int n;
 	struct listint_s *next;
 } listint_t;
+/**
+ * struct listint_address - singly linked list clone storing address
+ * @next: points to the next node
+ * @address: address from another list
+ * Description: singly linked list node structure
+ * that strore address from another
+ */
+typedef struct listint_address
+{
+	const struct listint_s *address;
+	struct listint_address *next;
+} listint_addr;
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
 listint_t *add_nodeint(listint_t **head, const int n);

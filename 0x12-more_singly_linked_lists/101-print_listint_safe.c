@@ -1,11 +1,11 @@
 #include "lists.h"
 /**
- * add_nodeint - adds new nodes to list
+ * add_nodeaddr - adds new nodes to list
  * @head: address new head
- * @n: number to add
+ * @addr: address to store
  * Return: head
  */
-listint_t *add_nodeaddr(listint_addr **head, listint_t *address)
+listint_addr *add_nodeaddr(listint_addr **head, const listint_t *addr)
 {
 	listint_addr *new_node;
 
@@ -15,7 +15,7 @@ listint_t *add_nodeaddr(listint_addr **head, listint_t *address)
 		printf("Error\n");
 		return (0);
 	}
-	new_node->address = address;
+	new_node->address = addr;
 	new_node->next = *head;
 	*head = new_node;
 	return (*head);
@@ -27,29 +27,27 @@ listint_t *add_nodeaddr(listint_addr **head, listint_t *address)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	typedef struct listint_address
-	{
-	struct listint_s *address;
-	struct listint_address *next;
-	} listint_addr;
 	size_t n = 0;
-	listint_addr *addrs;
+	listint_addr *addrs, *aux;
 
 	addrs = NULL;
-	add_nodeaddr(&addrs, head);
 	while (head)
 	{
-		while(addrs)
+		aux = addrs;
+		while (addrs)
 		{
-		if (addrs->address == head->next)	
-			
-
-		
+			if (addrs->address == head)
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				exit(98);
+			}
+			addrs = addrs->next;
+		}
 		printf("[%p] %d\n", (void *)head, head->n);
+		addrs = aux;
+		add_nodeaddr(&addrs, head);
 		head = head->next;
 		n++;
-		}
 	}
-	
 return (n);
 }
