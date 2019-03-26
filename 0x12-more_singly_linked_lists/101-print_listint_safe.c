@@ -1,5 +1,22 @@
 #include "lists.h"
 /**
+ * free_list2 - frees a list
+ * @head: head of the list
+ */
+void free_list2(listint_addr *head)
+{
+	listint_addr *aux;
+
+	aux = head;
+	while (head)
+	{
+		aux = head->next;
+		free(head);
+		head = aux;
+	}
+
+}
+/**
  * add_nodeaddr - adds new nodes to list
  * @head: address new head
  * @addr: address to store
@@ -49,5 +66,6 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		n++;
 	}
+free_list2(addrs);
 return (n);
 }
