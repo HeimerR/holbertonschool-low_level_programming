@@ -30,7 +30,7 @@ listint_addr *add_nodeaddr(listint_addr **head, const listint_t *addr)
 	if (new_node == NULL)
 	{
 		printf("Error\n");
-		return (0);
+		exit (98);
 	}
 	new_node->address = addr;
 	new_node->next = *head;
@@ -56,7 +56,8 @@ size_t print_listint_safe(const listint_t *head)
 			if (addrs->address == head)
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
-				exit(98);
+				free_list2(addrs);
+				return (n);
 			}
 			addrs = addrs->next;
 		}
