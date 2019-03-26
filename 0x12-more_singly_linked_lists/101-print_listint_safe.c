@@ -57,7 +57,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (addrs->address == head)
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
-				free_list2(addrs);
+				free_list2(aux);
 				return (n);
 			}
 			addrs = addrs->next;
