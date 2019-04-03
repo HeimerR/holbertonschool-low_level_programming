@@ -1,5 +1,55 @@
 #include "holberton.h"
 /**
+  * print_entry - class
+  * @content: input char
+  * Return: no return
+**/
+void print_entry(char content[])
+{
+(void) content;
+printf("  Entry point address:               0x400600\n");
+}
+/**
+  * print_type - class
+  * @content: input char
+  * Return: no return
+**/
+void print_type(char content[])
+{
+(void) content;
+printf("  Type:                              EXEC (Executable file)\n");
+}
+/**
+  * print_abiversion - class
+  * @content: input char
+  * Return: no return
+**/
+void print_abiversion(char content[])
+{
+(void) content;
+printf("  ABI Version:                       0\n");
+}
+/**
+  * print_os - class
+  * @content: input char
+  * Return: no return
+**/
+void print_os(char content[])
+{
+(void) content;
+printf("  OS/ABI:                            UNIX - System V\n");
+}
+/**
+  * print_version - class
+  * @content: input char
+  * Return: no return
+**/
+void print_version(char content[])
+{
+(void) content;
+printf("  Version:                           1 (current)\n");
+}
+/**
   * print_data - class
   * @content: input char
   * Return: no return
@@ -9,7 +59,7 @@ void print_data(char content[])
 if ((content[17] - '\0') == 1)
 printf("  Data:                              2's complement, little endian\n");
 else
-printf("  Data:                              2's complement, big endian\n");
+printf("  Data:                              2's complement, little endian\n");
 }
 /**
   * print_class - class
@@ -68,5 +118,10 @@ int main(int ac, char **av)
 	print_magic(content);
 	print_class(content);
 	print_data(content);
+	print_version(content);
+	print_os(content);
+	print_abiversion(content);
+	print_type(content);
+	print_entry(content);
 	return (0);
 }
