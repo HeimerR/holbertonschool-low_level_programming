@@ -17,7 +17,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 		printf("Error\n");
 		return (0);
 	}
-	if(aux)
+	if (aux)
 		aux->prev = new_node;
 	new_node->n = n;
 	new_node->next = *head;
