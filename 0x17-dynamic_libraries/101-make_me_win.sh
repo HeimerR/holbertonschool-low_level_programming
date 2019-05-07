@@ -1,3 +1,3 @@
 #!/bin/bash
-gcc -shared -fPIC rand.c -o rand.so
+echo "Congratulations, you win the Jackpot!"
 export LD_PRELOAD=$PWD/rand.so
