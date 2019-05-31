@@ -11,25 +11,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int hash;
 	unsigned long int index;
 	hash_node_t *node, *aux;
-	char val;
+	char *val, *k;
 
-	if (key[0] == '\n')
+	if (key[0] == '\0')
 		return (0);
 	hash = hash_djb2((const unsigned char *)key);
 	index = hash % ht->size;
-	val = *value;
+	val = strdup(value);
 	aux = ht->array[index];
-	while (aux && aux->key != key)
+	while (aux && strcmp(key, aux->key) != 0)
 	{
 		aux = aux->next;
 	}
 	if (aux)
-		aux->value = &val;
+	{
+		free(aux->value);
+		aux->value = val;
+	}
 	else
 	{
+	k = strdup(key);
 	node = malloc(sizeof(hash_node_t));
-	node->key = (char *)key;
-	node->value = &val;
+	node->key = k;
+	node->value = val;
 	node->next = ht->array[index];
 	ht->array[index] = node;
 	}
