@@ -227,7 +227,7 @@ void free_list(shash_node_t *head)
 	}
 }
 /**
-  * hash_table_delete - frees hash table
+  * shash_table_delete - frees hash table
   * @ht: hash table
   * Return: no return
 **/
