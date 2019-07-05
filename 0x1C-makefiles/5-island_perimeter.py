@@ -20,9 +20,6 @@ def island_perimeter(grid):
                     sum_total2 += 1
                 flag2 = flag
                 flag = grid[i][j]
-        print("partial" + str(sum_total2))
         flag = 0
         flag2 = 1
-    print(sum_total1)
-    print(sum_total2)
     return sum_total1 + sum_total2 + 1
