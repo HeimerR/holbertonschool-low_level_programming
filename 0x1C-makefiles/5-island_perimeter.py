@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Returns the perimeter of the island described in grid
-
 """
 
 
@@ -11,6 +10,7 @@ def island_perimeter(grid):
     grid.insert(0, up_line)
     grid.append(up_line)
     grid_t = [list(i) for i in zip(*grid)]
+    up_line = [0] * len(grid_t[0])
     grid_t.insert(0, up_line)
     grid_t.append(up_line)
     grid_t2 = [list(i) for i in zip(*grid_t)]
