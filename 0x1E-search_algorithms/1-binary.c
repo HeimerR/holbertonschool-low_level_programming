@@ -25,8 +25,8 @@ int binary_search(int *array, size_t size, int value)
 			return (j + offset);
 		if (array[j] < value)
 		{
-			offset = j + 1;
-			array += offset;
+			offset += j + 1;
+			array += j + 1;
 			if (!(size % 2))
 				j++;
 		}
