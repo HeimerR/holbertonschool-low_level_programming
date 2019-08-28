@@ -28,7 +28,10 @@ int interpolation_search(int *array, size_t size, int value)
 		if (array[pos] == value)
 			break;
 		if (array[pos] > value)
-			size = pos + 1;
+		{
+			size = pos;
+			high = pos - 1;
+		}
 		if (array[pos] < value)
 		{
 			array += pos + 1;
