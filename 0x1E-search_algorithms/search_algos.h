@@ -20,8 +20,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value);
  */
 typedef struct listint_s
 {
-    int n;
-    size_t index;
-    struct listint_s *next;
+	int n;
+	size_t index;
+	struct listint_s *next;
 } listint_t;
 #endif
