@@ -19,20 +19,22 @@ int advanced_binary(int *array, size_t size, int value)
 	while (i < size)
 		printf(", %d", array[i++]);
 	printf("\n");
+	if (size == 1 && array[0] != value)
+		return (-1);
 	j = (size - 1) / 2;
 	if (array[j] == value)
 	{
 		if (j == 0 || (array[j - 1] < value))
 			return (j);
-		j++;
 	}
 	if (array[j] < value)
 	{
 		offset += j + 1;
 		array += j + 1;
-		if (!(size % 2))
-			j++;
+		if (size % 2 != 0)
+			j--;
 	}
+	j++;
 	tmp = advanced_binary(array, j, value);
 	if (tmp != -1)
 		return (tmp + offset);
